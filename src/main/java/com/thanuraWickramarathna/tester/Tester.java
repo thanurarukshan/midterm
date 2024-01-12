@@ -89,7 +89,7 @@ class BloodSugar {
     }
 
     public void display() {
-        System.out.println("ID: " + id + ", Name: " + name + ", Year of Birth: " + birthYear + ", Sugar Level: " + sugarLevel);
+        System.out.println("ID: " + id + ",    Name: " + name + ",    Year of Birth: " + birthYear + ",    Sugar Level: " + sugarLevel);
     }
 }
 
@@ -104,12 +104,14 @@ public class Tester {
 
     public static void displayMenu() {
         while (true) {
-            System.out.println("Menu:");
-            System.out.println("1. Create a record");
-            System.out.println("2. Show blood sugar data for all users");
-            System.out.println("3. Show blood sugar data for a selected user");
-            System.out.println("4. Delete all records");
-            System.out.println("5. Exit application");
+            System.out.println("------------------------------------------------------------------------");
+            System.out.println("Options:");
+            System.out.println("( 1 ) Create new record");
+            System.out.println("( 2 ) Show blood sugar data ( all users )");
+            System.out.println("( 3 ) Show blood sugar data ( selected user )");
+            System.out.println("( 4 ) Delete all records");
+            System.out.println("( 5 ) Exit");
+            System.out.println("------------------------------------------------------------------------");
 
             int choice = scanner.nextInt();
             scanner.nextLine(); 
@@ -197,7 +199,7 @@ public class Tester {
 
     public static void exit() {
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("Exiting application. Goodbye!");
+        System.out.println("Exiting");
         System.out.println("------------------------------------------------------------------------");
         System.exit(0);
     }
