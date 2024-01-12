@@ -75,19 +75,25 @@ class BloodSugar {
         this.sugarLevel = sugarLevel;
     }
 
-    // Method to calculate something related to blood sugar
-    public void calculate() {
-//        if (sugarLevel )
+    public void calculate(int age,int sugarLevel) {
+        //calculate function is not functional.
+        if (age>0 && age<20) {
+            //children
+        }
+        else if (age>=20 && age<65) {
+            //adults
+    }
+        else {
+            //seniors
+        }
     }
 
-    // Method to display blood sugar data
     public void display() {
         System.out.println("ID: " + id + ", Name: " + name + ", Year of Birth: " + birthYear + ", Sugar Level: " + sugarLevel);
     }
 }
 
 
-//tester class remaned as BloodSugerMonitor
 public class Tester {
     private static ArrayList<BloodSugar> records = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
@@ -106,7 +112,7 @@ public class Tester {
             System.out.println("5. Exit application");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline character
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1 -> {
@@ -131,7 +137,7 @@ public class Tester {
                     exit();
                     break;
                 }
-                default -> System.out.println("Invalid choice. Please try again.");
+                default -> System.out.println("Error: Invalid pick. Try again");
             }
 
         }
@@ -155,28 +161,33 @@ public class Tester {
     }
 
     public static void create() {
-        System.out.println("Enter user ID:");
-        int id = scanner.nextInt();
-        scanner.nextLine(); // Consume newline character
+        try {
+            System.out.println("Enter user ID:");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
-        System.out.println("Enter name:");
-        String name = scanner.nextLine();
+            System.out.println("Enter name:");
+            String name = scanner.nextLine();
 
-        System.out.println("Enter year of birth:");
-        int birthYear = scanner.nextInt();
-        if (birthYear >= Year.now().getValue()) {
-            System.out.println("Invalid year entered, please refill the form !");
-            create();
+            System.out.println("Enter year of birth:");
+            int birthYear = scanner.nextInt();
+            if (birthYear >= Year.now().getValue()) {
+                System.out.println("Invalid year entered, please refill the form !");
+                create();
+            }
+
+
+            System.out.println("Enter blood sugar level:");
+            int sugarLevel = scanner.nextInt();
+
+            BloodSugar newRecord = new BloodSugar(id, name, birthYear, sugarLevel);
+            records.add(newRecord);
+
+            System.out.println("Record created successfully.");
         }
-    
-
-        System.out.println("Enter blood sugar level:");
-        int sugarLevel = scanner.nextInt();
-
-        BloodSugar newRecord = new BloodSugar(id, name, birthYear, sugarLevel);
-        records.add(newRecord);
-
-        System.out.println("Record created successfully.");
+        catch (Exception e) {
+            System.out.println("Unknown error occurred, please rerun the application!");
+        }
     }
 
     public static void delete() {
@@ -185,7 +196,9 @@ public class Tester {
     }
 
     public static void exit() {
+        System.out.println("------------------------------------------------------------------------");
         System.out.println("Exiting application. Goodbye!");
+        System.out.println("------------------------------------------------------------------------");
         System.exit(0);
     }
 }
