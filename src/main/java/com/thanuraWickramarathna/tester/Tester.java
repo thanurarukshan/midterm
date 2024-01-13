@@ -93,15 +93,25 @@ class BloodSugar {
     }
 }
 
-
+/**
+ *
+ * @author thanu
+ */
 public class Tester {
     private static ArrayList<BloodSugar> records = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         displayMenu();
     }
 
+    /**
+     *
+     */
     public static void displayMenu() {
         while (true) {
             System.out.println("------------------------------------------------------------------------");
@@ -145,6 +155,9 @@ public class Tester {
         }
     }
 
+    /**
+     *
+     */
     public static void index() {
         System.out.println("Blood Sugar Data for All Users:");
         for (BloodSugar record : records) {
@@ -152,6 +165,10 @@ public class Tester {
         }
     }
 
+    /**
+     *
+     * @param id
+     */
     public static void view(int id) {
         for (BloodSugar record : records) {
             if (record.getId() == id) {
@@ -162,6 +179,9 @@ public class Tester {
         System.out.println("User with ID " + id + " not found.");
     }
 
+    /**
+     *
+     */
     public static void create() {
         try {
             System.out.println("Enter user ID:");
@@ -192,11 +212,17 @@ public class Tester {
         }
     }
 
+    /**
+     *
+     */
     public static void delete() {
         records.clear();
         System.out.println("All records deleted.");
     }
 
+    /**
+     *
+     */
     public static void exit() {
         System.out.println("------------------------------------------------------------------------");
         System.out.println("Exiting");
