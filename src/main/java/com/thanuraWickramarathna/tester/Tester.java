@@ -183,33 +183,28 @@ public class Tester {
      *
      */
     public static void create() {
-        try {
-            System.out.println("Enter user ID:");
-            int id = scanner.nextInt();
-            scanner.nextLine();
+        System.out.println("Enter user ID:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
 
-            System.out.println("Enter name:");
-            String name = scanner.nextLine();
+        System.out.println("Enter name:");
+        String name = scanner.nextLine();
 
-            System.out.println("Enter year of birth:");
-            int birthYear = scanner.nextInt();
-            if (birthYear >= Year.now().getValue()) {
-                System.out.println("Invalid year entered, please refill the form !");
-                create();
-            }
-
-
-            System.out.println("Enter blood sugar level:");
-            int sugarLevel = scanner.nextInt();
-
-            BloodSugar newRecord = new BloodSugar(id, name, birthYear, sugarLevel);
-            records.add(newRecord);
-
-            System.out.println("Record created successfully.");
+        System.out.println("Enter year of birth:");
+        int birthYear = scanner.nextInt();
+        if (birthYear >= Year.now().getValue()) {
+            System.out.println("Invalid year entered, please refill the form !");
+            create();
         }
-        catch (Exception e) {
-            System.out.println("Unknown error occurred, please rerun the application!");
-        }
+
+
+        System.out.println("Enter blood sugar level:");
+        int sugarLevel = scanner.nextInt();
+
+        BloodSugar newRecord = new BloodSugar(id, name, birthYear, sugarLevel);
+        records.add(newRecord);
+
+        System.out.println("Record created successfully.");
     }
 
     /**
